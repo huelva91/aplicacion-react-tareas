@@ -7,6 +7,11 @@ function App() {
       <div className="fcc-logo-contenedor">
         <img className="fcc-logo" src={logoFcc} alt="" />
       </div>
+
+      <div className="tareas-lista-principal">
+        <h1>Mis Tareas</h1>
+        
+      </div>
     </div>
   );
 }
