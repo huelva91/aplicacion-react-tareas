@@ -14,12 +14,12 @@ const agregarTarea = tarea => {//Recibe una tarea
         const tareasActualizadas = [tarea, ...tareas]; //Agrega la nueva tarea al principio de la lista
         setTareas(tareasActualizadas); //Actualiza el estado
     }
-}
+};
 
 const eliminarTarea = id => {
     const tareasActualizadas = tareas.filter(tarea => tarea.id !== id); //Filtra las tareas que no sean iguales a la tarea que se quiere eliminar
     setTareas(tareasActualizadas); //Actualiza el estado
-}
+};
 
 const completarTarea = id => {
     const tareasActualizadas = tareas.map(tarea => {
@@ -29,7 +29,7 @@ const completarTarea = id => {
         return tarea; //Devuelve la tarea
     });
     setTareas(tareasActualizadas); 
-}
+};
 
 
 
