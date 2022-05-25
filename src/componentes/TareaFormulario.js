@@ -1,26 +1,25 @@
-import React, {useState} from "react";
-import "../estilos/TareaFomulario.css"
-import {v4 as uuidv4} from "uuid";
+import React, { useState } from "react";
+import "../estilos/TareaFomulario.css";
+import { v4 as uuidv4 } from "uuid";
 
 function TareaFormulario(props) {
-
   const [input, setInput] = useState("");
 
-  const manejarCambio = e =>{
-    setInput(e.target.value); //Extrae el valor del campo de texto    
-    }
+  const manejarCambio = (e) => {
+    setInput(e.target.value); //Extrae el valor del campo de texto
+  };
 
-  
-  const manejarEnvio = e =>{
+  const manejarEnvio = (e) => {
     e.preventDefault(); //Evita que se recargue la pagina
 
     const tareaNueva = {
       id: uuidv4(), //Genera un id unico
       texto: input, //Extrae el valor del campo de texto
-      completada: false //Por defecto es false
-    }
+      completada: false, //Por defecto es false
+    };
 
-  }
+    props.onSubmit(tareaNueva); //Envia la tarea al padre
+  };
 
   return (
     <form className="tarea-formulario" onSubmit={manejarEnvio}>
@@ -35,6 +34,5 @@ function TareaFormulario(props) {
     </form>
   );
 }
-
 
 export default TareaFormulario;
