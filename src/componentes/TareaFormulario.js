@@ -4,6 +4,8 @@ import { v4 as uuidv4 } from "uuid";
 
 function TareaFormulario(props) {
   const [input, setInput] = useState("");
+  const inputEl = useRef(null);//Para poder poner el foco en el input
+
 
   const manejarCambio = (e) => {
     setInput(e.target.value); //Extrae el valor del campo de texto
@@ -21,10 +23,9 @@ function TareaFormulario(props) {
 
     props.onSubmit(tareaNueva); //Envia la tarea al padre
     document.getElementById("tarea-input").value = "";
-    inputEl.current.focus();
+    inputEl.current.focus();//Pone el foco en el input
 
   };
-  const inputEl = useRef(null);
 
   return (
     <form className="tarea-formulario" onSubmit={manejarEnvio}>
