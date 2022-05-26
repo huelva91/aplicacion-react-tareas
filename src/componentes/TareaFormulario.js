@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useRef  } from "react";
 import "../estilos/TareaFomulario.css";
 import { v4 as uuidv4 } from "uuid";
 
@@ -21,13 +21,17 @@ function TareaFormulario(props) {
 
     props.onSubmit(tareaNueva); //Envia la tarea al padre
     document.getElementById("tarea-input").value = "";
+    inputEl.current.focus();
+
   };
+  const inputEl = useRef(null);
 
   return (
     <form className="tarea-formulario" onSubmit={manejarEnvio}>
       <input
         id="tarea-input"
         className="tarea-input"
+        ref={inputEl}
         type="text"
         placeholder="Escribe una tarea"
         name="texto"
