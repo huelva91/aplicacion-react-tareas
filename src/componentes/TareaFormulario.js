@@ -7,6 +7,7 @@ function TareaFormulario(props) {
 
   const manejarCambio = (e) => {
     setInput(e.target.value); //Extrae el valor del campo de texto
+    
   };
 
   const manejarEnvio = (e) => {
@@ -19,11 +20,13 @@ function TareaFormulario(props) {
     };
 
     props.onSubmit(tareaNueva); //Envia la tarea al padre
+    document.getElementById("tarea-input").value = "";
   };
 
   return (
     <form className="tarea-formulario" onSubmit={manejarEnvio}>
       <input
+        id="tarea-input"
         className="tarea-input"
         type="text"
         placeholder="Escribe una tarea"
