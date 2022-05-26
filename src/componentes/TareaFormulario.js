@@ -1,15 +1,13 @@
-import React, { useState ,useRef  } from "react";
+import React, { useState, useRef } from "react";
 import "../estilos/TareaFomulario.css";
 import { v4 as uuidv4 } from "uuid";
 
 function TareaFormulario(props) {
   const [input, setInput] = useState("");
-  const inputEl = useRef(null);//Para poder poner el foco en el input
-
+  const inputEl = useRef(null); //Para poder poner el foco en el input
 
   const manejarCambio = (e) => {
     setInput(e.target.value); //Extrae el valor del campo de texto
-    
   };
 
   const manejarEnvio = (e) => {
@@ -23,8 +21,8 @@ function TareaFormulario(props) {
 
     props.onSubmit(tareaNueva); //Envia la tarea al padre
     document.getElementById("tarea-input").value = "";
-    inputEl.current.focus();//Pone el foco en el input
-
+    inputEl.current.focus(); //Pone el foco en el input
+    setInput(""); //Limpia el input
   };
 
   return (
